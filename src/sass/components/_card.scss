@@ -1,0 +1,67 @@
+@use "../sass-toolkit" as st;
+@use "../config";
+
+//For scailing function
+//Breakpoints
+$mobile-width: 375;
+$desktop-width: 768;
+//Card Padding
+$card-padding-mobile: 28;
+$card-padding-desktop: 32;
+//Card-image-size
+$card-image-mobile: 57;
+$card-image-desktop: 64;
+//Heading-margin
+$h2-mb-mobile: 1;
+$h2-mb-desktop: 6;
+//Paragraph-margin
+$p-mb-mobile: 33;
+$p-mb-desktop: 40;
+
+.card {
+    background-color: config.$c-white-card-background;
+    border-radius: st.px2rem(8);
+    box-shadow: config.$s-card-shadow;
+    // Layout
+    display: flex;
+    flex-direction: column;
+    padding: st.linear-func-clamp($card-padding-mobile, $mobile-width, $card-padding-desktop, $desktop-width);
+    // used so ::before would be positioned for individual cards not whole viewport.
+    position: relative;
+    max-width: st.px2rem(350);
+
+    &::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: st.px2rem(4);
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: var(--card-top-color);
+        border-top-left-radius: inherit;
+        border-top-right-radius: inherit;
+    }
+
+    &::after {
+        content: "";
+        display: block;
+        width: st.linear-func-clamp($card-image-mobile, $mobile-width, $card-image-desktop, $desktop-width);
+        aspect-ratio: 1;
+        background-image: var(--card-icon-image);
+        background-size: 100% 100%;
+        align-self: flex-end;
+    }
+
+    .title {
+        margin-bottom: st.linear-func-clamp($h2-mb-mobile, $mobile-width, $h2-mb-desktop, $desktop-width);
+        // Fonts
+        @include config.card-heading;
+    }
+
+    p {
+        margin-bottom: st.linear-func-clamp($p-mb-mobile, $mobile-width, $p-mb-desktop, $desktop-width);
+        // Fonts
+        @include config.card-paragraph;
+    }
+}

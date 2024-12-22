@@ -1,0 +1,6 @@
+@mixin shadows-definitions {
+    /* box shadows */
+    --card-box-shadow: 0 15px 30px -11px hsla(213, 47%, 67%, 0.5);
+}
+
+$s-card-shadow: var(--card-box-shadow);

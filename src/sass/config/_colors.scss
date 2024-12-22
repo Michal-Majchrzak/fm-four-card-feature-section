@@ -1,0 +1,20 @@
+@mixin colors-definitions {
+    /* colors */
+    --c-red-100: hsl(0, 78%, 62%);
+    --c-teal-100: hsl(180, 62%, 55%);
+    --c-yellow-100: hsl(34, 97%, 64%);
+    --c-blue-100: hsl(212, 86%, 64%);
+    --c-desaturated-blue-100: hsl(234, 12%, 34%);
+    --c-paragraph-text: hsla(234, 12%, 34%, 0.5);
+    --c-white-background: hsl(0, 0%, 98%);
+    --c-white-card-background: hsl(0, 0%, 100%);
+}
+
+$c-red-100: var(--c-red-100);
+$c-teal-100: var(--c-teal-100);
+$c-yellow-100: var(--c-yellow-100);
+$c-blue-100: var(--c-blue-100);
+$c-desaturated-blue-100: var(--c-desaturated-blue-100);
+$c-paragraph-text: var(--c-paragraph-text);
+$c-white-background: var(--c-white-background);
+$c-white-card-background: var(  --c-white-card-background);

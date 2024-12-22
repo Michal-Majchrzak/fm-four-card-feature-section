@@ -1,0 +1,43 @@
+@use "../sass-toolkit" as st;
+@use "colors";
+
+@mixin default-font {
+    /* Default font style*/
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    color: colors.$c-desaturated-blue-100;
+}
+
+@mixin main-heading {
+    font-size: st.px2rem(24);
+    letter-spacing: st.px2rem(0.17);
+}
+
+@mixin main-heading-extralight {
+    font-weight: 200;
+    @include main-heading;
+}
+
+@mixin main-heading-semibold {
+    font-weight: 600;
+    @include main-heading;
+}
+
+@mixin main-paragraph {
+    font-size: st.px2rem(15);
+    line-height: 1.6667; // 25px
+    letter-spacing: st.px2rem(0.1);
+    color: colors.$c-paragraph-text;
+}
+
+@mixin card-heading {
+    font-size: st.px2rem(20);
+    font-weight: 600;
+}
+
+@mixin card-paragraph {
+    font-size: st.px2rem(13);
+    line-height: 1.7692; // 23px
+    letter-spacing: st.px2rem(0.09);
+    color: colors.$c-paragraph-text;
+}
