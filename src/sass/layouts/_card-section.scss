@@ -1,0 +1,30 @@
+@use "../sass-toolkit" as st;
+
+.card-section {
+    $mobile-width: 375;
+    $desktop-width: 768;
+
+    $gap-mobile: 24;
+    $gap-desktop: 30;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min-content, st.px2rem(350)));
+    gap: st.linear-func-clamp($gap-mobile, $mobile-width, $gap-desktop, $desktop-width);
+    justify-content: center;
+}
+
+@media (min-width: st.px2rem(1174)) {
+    .card-section {
+        grid-template-areas: ". team-builder ."
+                             "supervisor team-builder calculator"
+                             "supervisor karma calculator"
+                             ". karma .";
+    }
+    
+    $roles: "supervisor", "team-builder", "karma", "calculator";
+    @each $role in $roles {
+        .card[data-role=#{$role}] {
+            grid-area: #{$role};
+        }
+    }
+}

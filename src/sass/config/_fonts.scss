@@ -1,6 +1,9 @@
 @use "../sass-toolkit" as st;
 @use "colors";
 
+$mobile-width: 375;
+$desktop-width: 768;
+
 @mixin default-font {
     /* Default font style*/
     font-family: "Poppins", serif;
@@ -9,18 +12,23 @@
 }
 
 @mixin main-heading {
-    font-size: st.px2rem(24);
-    letter-spacing: st.px2rem(0.17);
+    $h1-fs-mobile: 24;
+    $h1-fs-desktop: 36;
+
+    $h1-ls-mobile: 0.17;
+    $h1-ls-desktop: 0.25;
+
+    font-size: st.linear-func-clamp($h1-fs-mobile, $mobile-width, $h1-fs-desktop, $desktop-width);
+    letter-spacing: st.linear-func-clamp($h1-ls-mobile, $mobile-width, $h1-ls-desktop, $desktop-width);
 }
 
 @mixin main-heading-extralight {
     font-weight: 200;
-    @include main-heading;
 }
 
 @mixin main-heading-semibold {
     font-weight: 600;
-    @include main-heading;
+    line-height: 1.33;
 }
 
 @mixin main-paragraph {

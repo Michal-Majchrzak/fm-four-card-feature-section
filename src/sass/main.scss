@@ -1,5 +1,7 @@
+@use "sass-toolkit" as st;
 @use "config";
 @use "components";
+@use "layouts";
 
 :root {
     @include config.shadows-definitions;
@@ -20,12 +22,22 @@ $card-roles: (
     }
 }
 
-
-//tmp
 body {
+    $mobile-width: 375;
+    $desktop-width: 1174;
+
+    $plr-mobile: 32;
+    $pt-mobile: 85;
+    $pb-mobile: 78;
+
+    $plr-desktop: 165;
+    $ptb-desktop: 80;
+
+
+    $pt : st.linear-func-clamp($ptb-desktop, $desktop-width, $pt-mobile, $mobile-width);
+    $pb : st.linear-func-clamp($pb-mobile, $mobile-width, $ptb-desktop, $desktop-width);
+    $plr : st.linear-func-clamp($plr-mobile, $mobile-width, $plr-desktop, $desktop-width);
+
+    padding: $pt $plr $pb;
     background-color: config.$c-white-background;
-    padding: 32px;
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
 }

@@ -30,7 +30,7 @@
   align-self: flex-end;
 }
 .card .title {
-  margin-bottom: clamp(0.0625rem, 1.272264631vw + -0.2356870229rem, 0.375rem);
+  margin-bottom: clamp(0rem, 1.5267175573vw + -0.3578244275rem, 0.375rem);
   font-size: 1.25rem;
   font-weight: 600;
 }
@@ -42,6 +42,57 @@
   color: var(--c-paragraph-text);
 }
 
+.header {
+  max-width: 33.75rem;
+  margin: 0 auto;
+  margin-bottom: clamp(4rem, -3.0534351145vw + 5.465648855rem, 4.75rem);
+  text-align: center;
+}
+.header .title {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  font-size: clamp(1.5rem, 3.0534351145vw + 0.784351145rem, 2.25rem);
+  letter-spacing: clamp(0.010625rem, 0.0203562341vw + 0.0058540076rem, 0.015625rem);
+}
+.header .title .extralight {
+  font-weight: 200;
+}
+.header .title .semibold {
+  font-weight: 600;
+  line-height: 1.33;
+}
+.header p {
+  font-size: 0.9375rem;
+  line-height: 1.6667;
+  letter-spacing: 0.00625rem;
+  color: var(--c-paragraph-text);
+}
+
+.card-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min-content, 21.875rem));
+  gap: clamp(1.5rem, 1.5267175573vw + 1.1421755725rem, 1.875rem);
+  justify-content: center;
+}
+
+@media (min-width: 73.375rem) {
+  .card-section {
+    grid-template-areas: ". team-builder ." "supervisor team-builder calculator" "supervisor karma calculator" ". karma .";
+  }
+  .card[data-role=supervisor] {
+    grid-area: supervisor;
+  }
+  .card[data-role=team-builder] {
+    grid-area: team-builder;
+  }
+  .card[data-role=karma] {
+    grid-area: karma;
+  }
+  .card[data-role=calculator] {
+    grid-area: calculator;
+  }
+}
 :root {
   /* box shadows */
   --card-box-shadow: 0 15px 30px -11px hsla(213, 47%, 67%, 0.5);
@@ -81,11 +132,8 @@
 }
 
 body {
+  padding: clamp(5rem, -0.6257822278vw + 5.4591677096rem, 5.3125rem) clamp(2rem, 16.6458072591vw + -1.9013610763rem, 10.3125rem) clamp(4.875rem, 0.2503128911vw + 4.8163329161rem, 5rem);
   background-color: var(--c-white-background);
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
 }
 
 /*# sourceMappingURL=main.css.map */

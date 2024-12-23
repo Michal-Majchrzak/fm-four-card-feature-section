@@ -1,0 +1,40 @@
+@use "../sass-toolkit" as st;
+@use "../config";
+
+.header {
+    $mobile-width: 375;
+    $desktop-width: 768;
+
+    $header-mb-mobile: 76;
+    $header-mb-desktop: 64;
+
+    max-width: st.px2rem(540);
+    margin: 0 auto;
+    margin-bottom: st.linear-func-clamp($header-mb-desktop, $desktop-width, $header-mb-mobile, $mobile-width);
+    text-align: center;
+
+    .title {
+        // $h1-mb-mobile: 14;
+        // $h1-mb-desktop: 10;
+
+        display: flex;
+        flex-direction: column;
+        // margin-bottom: st.linear-func-clamp($h1-mb-desktop, $desktop-width, $h1-mb-mobile, $mobile-width);
+        margin-bottom: st.px2rem(16);
+        //Fonts
+        @include config.main-heading;
+
+        .extralight {
+            //Fonts
+            @include config.main-heading-extralight;
+        }
+        .semibold {
+            //Fonts
+            @include config.main-heading-semibold;
+        }
+    }
+    p {
+        //Fonts
+        @include config.main-paragraph;
+    }
+}
